@@ -8,3 +8,8 @@ pre {
   overflow: auto;
   font-size: 13px;
 }
+
+input[type='range'] {
+  max-width: 400px;
+  margin: auto;
+}
