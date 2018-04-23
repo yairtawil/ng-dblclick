@@ -12,9 +12,11 @@
     "build": "ngc",
     "build:watch": "ngc -w",
     "prepublishOnly": "npm version patch && npm run build",
-    "preversion": "git push --tags",
+    "postversion": "git push --tags",
     "build:example": "npm run build --prefix example",
     "start:example": "npm run start --prefix example",
+    "copy:example": "copyfiles demo/dist/**/* . --up 2",
+    "build:gh-pages": "npm run build:example && npm run copy:example && ts-node scripts/gh-pages.ts",
     "test": "echo \"Error: no test specified\""
   },
   "keywords": [
@@ -33,16 +35,20 @@
   "devDependencies": {
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
-    "@angular/core": "^5.2.0",
     "@angular/compiler-cli": "^5.2.0",
+    "@angular/core": "^5.2.0",
     "codelyzer": "^4.0.1",
-    "rxjs": "^5.5.6",
-    "tslint": "~5.9.1",
-    "typescript": "~2.5.3",
     "copyfiles": "^1.2.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "rxjs": "^5.5.6",
+    "ts-node": "^6.0.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3"
   },
   "files": [
     "dist/**/*"
-  ]
+  ],
+  "dependencies": {
+    "@types/node": "^9.6.6"
+  }
 }
