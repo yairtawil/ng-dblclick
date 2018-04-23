@@ -11,7 +11,8 @@
   "scripts": {
     "build": "ngc",
     "build:watch": "ngc -w",
-    "test": "echo \"Error: no test specified\""
+		"start:example": "ng s --prefix example",
+		"test": "echo \"Error: no test specified\""
   },
   "keywords": [
     "ng-dblclick",
