@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgDbclickDirective } from './ng-dbclick.directive';
+import { NgDbclickDirective } from './ng-dblclick.directive';
 
 @NgModule({
   imports: [CommonModule],
