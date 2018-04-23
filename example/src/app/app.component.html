@@ -1,0 +1,58 @@
+<div class="container">
+  <div>
+
+    <h1>
+      ng-dblclick directive
+    </h1>
+
+    <h3>
+      basic: (click) / (dblclick)
+    </h3>
+
+    <pre><code class="language-html">   <span class="hljs-tag">&lt;<span class="hljs-title">button</span> (<span class="hljs-attribute">click</span>)=<span class="hljs-value">"onClick()"</span> (<span class="hljs-attribute">dblclick</span>)=<span class="hljs-value">"onDblclick()"</span>&gt;</span> Click<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    </code></pre>
+
+    <button type="button" class="btn btn-primary" (click)="click = click + 1" (dblclick)="dblclick = dblclick + 1">Click
+    </button>
+    <button type="button" class="btn btn-warning" (click)="click = 0; dblclick = 0;">clear</button>
+
+    <p>
+      <b>click:</b> {{click}} <br>
+      <b>dblclick:</b>{{dblclick}}
+    </p>
+  </div>
+
+  <div>
+
+    <h3>
+      ngDblClick: (on-click) / (on-dblclick)
+    </h3>
+
+    <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> [<span class="hljs-attribute">ngDblClick</span>]=<span class="hljs-value">"deley"</span> (<span class="hljs-attribute">on-click</span>)=<span class="hljs-value">"onClick()"</span> (<span class="hljs-attribute">on-dblclick</span>)=<span class="hljs-value">"onDblClick()"</span>&gt;</span>Click<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    </code></pre>
+
+    <button type="button"
+            class="btn btn-primary btn-outline-success"
+            [ngDblClick]="delay"
+            (mouseup)="startTimer()"
+            (on-click)="ngClick = ngClick + 1"
+            (on-dblclick)="ngDblClick = ngDblClick + 1">
+      Click {{ timer }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="ngClick = 0; ngDblClick = 0; delay = 300">
+      Reset
+    </button>
+    <h4>delay: </h4>
+    <input type="range" min="100" max="600" step="100" [value]="delay" (change)="delay = $event.target.value"/>
+    {{ delay }}
+    <p>
+      <b>click:</b> {{ngClick}} <br>
+      <b>dblclick:</b> {{ngDblClick}}
+    </p>
+
+  </div>
+
+</div>
