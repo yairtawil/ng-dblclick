@@ -6,8 +6,8 @@ export const DEFAULT_DURATION = 200;
 })
 
 export class NgDbclickDirective {
-	@Output() ngClick = new EventEmitter();
-	@Output() ngDblclick = new EventEmitter();
+	@Output('on-click') onClick = new EventEmitter();
+	@Output('on-dblclick') onDblClick = new EventEmitter();
 	private _delay = DEFAULT_DURATION;
 
 	@Input('ngDblClick')
@@ -25,25 +25,22 @@ export class NgDbclickDirective {
 	wait: number;
 
 	@HostListener('click', ['$event'])
-	onClick($event: MouseEvent) {
+	onClickEvent($event: MouseEvent) {
 		if (!this.down) {
 			this.down = true;
 			this.wait = setTimeout((() => {
-				this.ngClick.emit($event);
-				this.clear();
+				this.wait = null;
+				this.onClick.emit($event);
+				this.down = false;
 			}), this.delay);
 		} else {
-			this.ngDblclick.emit($event);
-			this.clear();
+			this.onDblClick.emit($event);
+			if (this.wait) {
+				window.clearTimeout(this.wait);
+				this.wait = null;
+				this.down = false;
+			}
 		}
 	};
-
-	clear() {
-		if (this.wait) {
-			window.clearTimeout(this.wait);
-			this.wait = null;
-		}
-		this.down = false;
-	}
 
 }
