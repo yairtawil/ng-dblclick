@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, Output, Input, HostListener } from '@angular/core';
-export const DEFAULT_DURATION = 200;
+export const DEFAULT_DELAY = 200;
 
 @Directive({
 	selector: '[ngDblClick]'
@@ -8,7 +8,7 @@ export const DEFAULT_DURATION = 200;
 export class NgDbclickDirective {
 	@Output('on-click') onClick = new EventEmitter();
 	@Output('on-dblclick') onDblClick = new EventEmitter();
-	private _delay = DEFAULT_DURATION;
+	private _delay = DEFAULT_DELAY;
 
 	@Input('ngDblClick')
 	set delay(value) {
@@ -36,7 +36,7 @@ export class NgDbclickDirective {
 		} else {
 			this.onDblClick.emit($event);
 			if (this.wait) {
-				window.clearTimeout(this.wait);
+				clearTimeout(this.wait);
 				this.wait = null;
 				this.down = false;
 			}
