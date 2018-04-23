@@ -11,7 +11,10 @@
   "scripts": {
     "build": "ngc",
     "build:watch": "ngc -w",
-		"start:example": "ng s --prefix example",
+		"prepublishOnly": "npm version patch && npm run build",
+		"preversion": "git push --tags",
+		"build:example": "npm run build --prefix example",
+		"start:example": "npm run start --prefix example",
 		"test": "echo \"Error: no test specified\""
   },
   "keywords": [
