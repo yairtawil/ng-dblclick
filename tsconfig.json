@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "outDir": "dist",
+    "lib": [
+      "dom",
+      "es2015"
+    ]
+  },
+  "include": [
+    "public_api.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  }
+}
