@@ -11,7 +11,7 @@
   "scripts": {
     "build": "ngc",
     "build:watch": "ngc -w",
-    "prepublishOnly": "npm version patch && npm run build",
+    "prepublishOnly": "npm run build",
     "postversion": "git push --tags",
     "build:example": "npm run build --prefix example",
     "start:example": "npm run start --prefix example",
