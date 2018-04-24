@@ -4,11 +4,11 @@ const content = [
 	'*',
 	'!index.html',
 	'!favicon.ico',
-	'!inline.bundle.js',
-	'!main.bundle.js',
-	'!polyfills.bundle.js',
-	'!styles.bundle.js',
-	'!vendor.bundle.js'
+	'!inline.*',
+	'!main.*',
+	'!polyfills.*',
+	'!styles.*',
+	'!vendor.*'
 ].join('\n');
 
 const path = './.gitignore';
