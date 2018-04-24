@@ -1,6 +1,6 @@
 {
   "name": "ng-dblclick",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ng dblclick directive for angular",
   "main": "./dist/public_api.js",
   "typings": "./dist/public_api.d.ts",
